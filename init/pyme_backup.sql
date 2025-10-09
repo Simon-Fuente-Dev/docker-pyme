@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
-\restrict CgmKwb1m66dug9xoldJy46AxqM1Gp2I0jfAQNU1gZVz7hfJjJ1VfFHJakItP2Ln
+\restrict MJJrNfrbnpZEYcEKCKn5dof2GhxQwYNbe4eURsDZo4yKJX6zS8XrdE2SpRqLB6o
 
--- Dumped from database version 17.6
--- Dumped by pg_dump version 17.6
+-- Dumped from database version 17.6 (Debian 17.6-2.pgdg13+1)
+-- Dumped by pg_dump version 17.6 (Debian 17.6-2.pgdg13+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -34,14 +34,14 @@ ALTER SCHEMA web_schema OWNER TO postgres;
 
 CREATE FUNCTION web_schema.sp_get_regiones() RETURNS refcursor
     LANGUAGE plpgsql
-    AS $$
-DECLARE
-    regiones_cursor refcursor;
-BEGIN
-    OPEN regiones_cursor FOR
-        SELECT id_region, region FROM tbl_region;
-    RETURN regiones_cursor;
-END;
+    AS $$
+DECLARE
+    regiones_cursor refcursor;
+BEGIN
+    OPEN regiones_cursor FOR
+        SELECT id_region, region FROM tbl_region;
+    RETURN regiones_cursor;
+END;
 $$;
 
 
@@ -60,7 +60,7 @@ CREATE TABLE public.tbl_pyme (
     nombre_pyme character varying(100),
     direccion character varying(100),
     id_comuna integer NOT NULL,
-    descripcion_pyme character varying(300) DEFAULT ''::character varying NOT NULL
+    descripcion_pyme text DEFAULT ''::character varying NOT NULL
 );
 
 
@@ -780,7 +780,7 @@ COPY public.tbl_orden_compra (id_orden_compra, estado, id_pyme, id_usuario) FROM
 --
 
 COPY public.tbl_pyme (id_pyme, nombre_pyme, direccion, id_comuna, descripcion_pyme) FROM stdin;
-1	Foqui Restaurante	La condesa 9569	90	
+1	Foqui Restaurante	La condesa 9569	90	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare ultricies sem, varius pulvinar enim vulputate non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nec bibendum sapien. Nulla nulla elit, tincidunt ac faucibus non, fringilla at elit. Curabitur eu lectus non sem mollis dignissim sit amet ac felis. Quisque aliquam sem odio, eget luctus nisl rhoncus sed. Vivamus et commodo mi, in lobortis ligula. Donec consequat mauris mi, et accumsan arcu facilisis id. Nullam id nulla ornare arcu aliquet elementum non eu magna. Ut ex quam, mollis ut est non, rhoncus lacinia justo. Nunc varius orci id sem sodales, eu pharetra lorem interdum. Vivamus condimentum urna non arcu dapibus, ac rutrum eros auctor.
 \.
 
 
@@ -1237,5 +1237,5 @@ ALTER TABLE ONLY public.tbl_item
 -- PostgreSQL database dump complete
 --
 
-\unrestrict CgmKwb1m66dug9xoldJy46AxqM1Gp2I0jfAQNU1gZVz7hfJjJ1VfFHJakItP2Ln
+\unrestrict MJJrNfrbnpZEYcEKCKn5dof2GhxQwYNbe4eURsDZo4yKJX6zS8XrdE2SpRqLB6o
 
