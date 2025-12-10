@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict ZIoyrNth9FoK9N35m298vRQI5brOgdS6LXmhy9qfvers7He5zQIeCvBHcxxn3Yo
+\restrict PG86JpnFBbD25jKbVTtAVKX78gFp3xzTQeayQMnFPIj5mZdbvpZ2eydXmluFkpU
 
 -- Dumped from database version 17.6 (Debian 17.6-2.pgdg13+1)
 -- Dumped by pg_dump version 17.6 (Debian 17.6-2.pgdg13+1)
@@ -189,7 +189,8 @@ CREATE TABLE public.tbl_item (
     duracion_max integer,
     id_pyme integer NOT NULL,
     id_tipo_item integer NOT NULL,
-    id_tipo_sub_servicio integer NOT NULL
+    id_tipo_sub_servicio integer NOT NULL,
+    precio integer
 );
 
 
@@ -849,7 +850,14 @@ COPY public.tbl_comuna (id_comuna, comuna, id_region) FROM stdin;
 -- Data for Name: tbl_item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.tbl_item (id_item, nombre, descripcion, duracion_min, duracion_max, id_pyme, id_tipo_item, id_tipo_sub_servicio) FROM stdin;
+COPY public.tbl_item (id_item, nombre, descripcion, duracion_min, duracion_max, id_pyme, id_tipo_item, id_tipo_sub_servicio, precio) FROM stdin;
+4	corta churro	asd	0	0	3	1	5	\N
+5	asddssad	saddsa	0	0	3	1	4	\N
+6	asddsa	asdasds	10	120	3	2	6	10000
+7	a	a	0	0	3	1	5	1
+1	prueba	clavo cabeza blanda	0	0	3	1	4	15000
+2	prueba 2	pasando de producto a servicio	15	60	3	2	4	20000
+3	asddsa	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	0	0	3	1	4	12000
 \.
 
 
@@ -876,8 +884,8 @@ COPY public.tbl_pyme (id_pyme, nombre_pyme, direccion, id_comuna, descripcion_py
 --
 
 COPY public.tbl_red_pyme (id_red_pyme, id_pyme, id_tipo_red, url, numero_telefono) FROM stdin;
-4	3	2	https://www.mercadolibre.cl/	0
-6	3	3	https://www.youtube.com/	0
+13	3	2	https://www.instagram.com/direct/inbox/	\N
+14	3	1		912341235
 \.
 
 
@@ -1033,7 +1041,7 @@ SELECT pg_catalog.setval('public.pyme_id_pyme_seq', 3, true);
 -- Name: seq_red_pyme; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.seq_red_pyme', 6, true);
+SELECT pg_catalog.setval('public.seq_red_pyme', 15, true);
 
 
 --
@@ -1068,7 +1076,7 @@ SELECT pg_catalog.setval('public.tbl_comuna_id_comuna_seq', 333, true);
 -- Name: tbl_item_id_item_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.tbl_item_id_item_seq', 1, false);
+SELECT pg_catalog.setval('public.tbl_item_id_item_seq', 7, true);
 
 
 --
@@ -1485,5 +1493,5 @@ ALTER TABLE ONLY public.tbl_item
 -- PostgreSQL database dump complete
 --
 
-\unrestrict ZIoyrNth9FoK9N35m298vRQI5brOgdS6LXmhy9qfvers7He5zQIeCvBHcxxn3Yo
+\unrestrict PG86JpnFBbD25jKbVTtAVKX78gFp3xzTQeayQMnFPIj5mZdbvpZ2eydXmluFkpU
 
